@@ -27,7 +27,7 @@ Clone it with your favorite AI-assisted coding tool to get started quickly. Send
 - [**TypeScript**](https://www.typescriptlang.org/) - A decent typed language that can be used on both frontend and backend
 - [**React**](https://react.dev/) - A great frontend framework when used responsibly with a strong ecosystem
 - [**Next.js**](https://nextjs.org/) - Still the best option to get a full-stack React app -- but I have strong reservations about its complexity
-- [**tRPC**](https://trpc.io/) with [**Tanstack Query**](https://tanstack.com/query/latest) for end-to-end typesafe APIs, which is less error-prone than REST APIs and less of a headache than React Server Components
+- [**tRPC**](https://trpc.io/) with [**Tanstack Query**](https://tanstack.com/query/latest) for end-to-end typesafe APIs, which is less error-prone than REST APIs and less of a headache than React Server Components, plus it does streaming responses!
 - [**PostgreSQL**](https://www.postgresql.org/) - The best choice for a general-purpose OLTP database
 - [**PGLite**](https://github.com/electric-sql/pglite) - For an in-memory PostgreSQL database for testing
 - [**Kysely**](https://kysely.dev/) - Type-safe SQL query builder and database migration tool
