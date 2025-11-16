@@ -2,7 +2,7 @@ import { PGlite } from "@electric-sql/pglite";
 import { Kysely, LogEvent, PostgresDialect } from "kysely";
 import { PGliteDialect } from "kysely-pglite-dialect";
 import { Pool } from "pg";
-import { __TEST__, Env, getEnv } from "../env";
+import { Env, __TEST__, getEnv } from "../env";
 import { Logger } from "../logging";
 import type { DB } from "./types";
 

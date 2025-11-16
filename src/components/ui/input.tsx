@@ -27,7 +27,7 @@ function Input({ className, type, variant = "default", ...props }: InputProps) {
           "focus-visible:ring-ring focus-visible:ring-1 focus-visible:outline-none",
           "disabled:cursor-not-allowed disabled:opacity-50",
         ],
-        className,
+        className
       )}
       {...props}
     />

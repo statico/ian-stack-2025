@@ -1,6 +1,6 @@
-import { promises as fs } from "fs";
-import * as path from "path";
-import { fileURLToPath } from "url";
+import { promises as fs } from "node:fs";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import { db } from ".";
 
 /*
@@ -31,12 +31,9 @@ export const migrate = async () => {
       if (
         errorMessage.includes("already exists") ||
         errorMessage.includes("duplicate key value") ||
-        (errorMessage.includes("constraint") &&
-          errorMessage.includes("already exists"))
+        (errorMessage.includes("constraint") && errorMessage.includes("already exists"))
       ) {
-        console.warn(
-          `Migration ${migrationFile} had objects that already exist, continuing...`,
-        );
+        console.warn(`Migration ${migrationFile} had objects that already exist, continuing...`);
       } else {
         throw new Error(`Failed to run up migration ${migrationFile}: ${err}`);
       }

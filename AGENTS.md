@@ -1,14 +1,17 @@
 # AGENTS.md
 
 - This project uses Next.js, Kysely, shadcn/ui, Tailwind v4, and Postgres for the database
-- Tech stack: TypeScript, React, Next.js, tRPC, Tanstack Query, PostgreSQL, Kysely, shadcn/ui, Tailwind CSS v4, pnpm, Vitest, Prettier, ESLint
+- Tech stack: TypeScript, React, Next.js, tRPC, Tanstack Query, PostgreSQL, Kysely, shadcn/ui, Tailwind CSS v4, pnpm, Vitest, BiomeJS, Lefthook
 - If available, use the Exa search tool to find information and up-to-date API documentation.
 
 ## Setup
 
 - NEVER use `npm` or `yarn`. ALWAYS use `pnpm`.
 - Install dependencies: `pnpm install`
-- Run ESLint to check code quality: `pnpm lint`
+- Run BiomeJS to check code quality (linting and formatting): `pnpm check`
+- Fix linting and formatting issues automatically: `pnpm check:fix`
+- Format code: `pnpm format`
+- Lint code only: `pnpm lint`
 - Run TypeScript type checking: `pnpm types`
 - Run test suite with Vitest: `pnpm test`
 - NEVER run `pnpm build` during development. It interferes with the dev server.

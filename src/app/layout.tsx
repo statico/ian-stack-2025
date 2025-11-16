@@ -23,7 +23,7 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="apple-touch-icon-precomposed" href="/favicon.png" />
       </head>
-      <body className={`bg-background antialiased`}>
+      <body className={"bg-background antialiased"}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

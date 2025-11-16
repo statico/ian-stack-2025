@@ -6,12 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useTRPC } from "@/lib/trpc/client";
-import {
-  keepPreviousData,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -21,21 +16,17 @@ export default function HomePage() {
   const trpc = useTRPC();
   const queryClient = useQueryClient();
   const [newTodoText, setNewTodoText] = useState("");
-  const [localTodoTexts, setLocalTodoTexts] = useState<Record<number, string>>(
-    {},
-  );
+  const [localTodoTexts, setLocalTodoTexts] = useState<Record<number, string>>({});
 
   const { data: todos } = useQuery(
     trpc.todos.getAll.queryOptions(undefined, {
       placeholderData: keepPreviousData,
-    }),
+    })
   );
 
   // Get the current text for a todo, using local state if available, otherwise server data
   const getTodoText = (todo: any) => {
-    return localTodoTexts[todo.id] !== undefined
-      ? localTodoTexts[todo.id]
-      : todo.text;
+    return localTodoTexts[todo.id] !== undefined ? localTodoTexts[todo.id] : todo.text;
   };
 
   const createTodo = useMutation(
@@ -47,7 +38,7 @@ export default function HomePage() {
           queryKey: trpc.todos.getAll.queryKey(),
         });
       },
-    }),
+    })
   );
 
   const updateTodo = useMutation(
@@ -58,7 +49,7 @@ export default function HomePage() {
           queryKey: trpc.todos.getAll.queryKey(),
         });
       },
-    }),
+    })
   );
 
   const deleteTodo = useMutation(
@@ -69,7 +60,7 @@ export default function HomePage() {
           queryKey: trpc.todos.getAll.queryKey(),
         });
       },
-    }),
+    })
   );
 
   const handleCreateTodo = (e: React.FormEvent) => {
@@ -90,7 +81,7 @@ export default function HomePage() {
         updateTodo.mutate({ id, text: text.trim() });
       }
     },
-    500, // 500ms delay
+    500 // 500ms delay
   );
 
   const handleUpdateText = (id: number, text: string) => {
@@ -118,10 +109,7 @@ export default function HomePage() {
               placeholder="Add a new todo..."
               className="flex-1"
             />
-            <Button
-              type="submit"
-              disabled={!newTodoText.trim() || createTodo.isPending}
-            >
+            <Button type="submit" disabled={!newTodoText.trim() || createTodo.isPending}>
               Add
             </Button>
           </form>
@@ -136,28 +124,17 @@ export default function HomePage() {
               </>
             )}
             {todos?.map((todo: any) => (
-              <div
-                key={todo.id}
-                className="flex items-center gap-3 rounded-lg border p-3"
-              >
+              <div key={todo.id} className="flex items-center gap-3 rounded-lg border p-3">
                 <Checkbox
                   checked={todo.completed}
-                  onCheckedChange={(checked) =>
-                    handleToggleComplete(todo.id, checked as boolean)
-                  }
+                  onCheckedChange={(checked) => handleToggleComplete(todo.id, checked as boolean)}
                 />
                 <Input
                   value={getTodoText(todo)}
                   onChange={(e) => handleUpdateText(todo.id, e.target.value)}
-                  className={`flex-1 ${
-                    todo.completed ? "text-gray-500 line-through" : ""
-                  }`}
+                  className={`flex-1 ${todo.completed ? "text-gray-500 line-through" : ""}`}
                 />
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={() => handleDelete(todo.id)}
-                >
+                <Button variant="destructive" size="sm" onClick={() => handleDelete(todo.id)}>
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </div>
@@ -165,9 +142,7 @@ export default function HomePage() {
           </div>
 
           {todos?.length === 0 && (
-            <div className="py-8 text-center text-gray-500">
-              No todos yet. Add one above!
-            </div>
+            <div className="py-8 text-center text-gray-500">No todos yet. Add one above!</div>
           )}
         </CardContent>
       </Card>

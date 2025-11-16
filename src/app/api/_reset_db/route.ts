@@ -24,7 +24,7 @@ export async function GET() {
     console.error("Failed to reset database:", error);
     return NextResponse.json(
       { error: "Failed to reset database", details: String(error) },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

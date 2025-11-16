@@ -14,7 +14,7 @@ Clone it with your favorite AI-assisted coding tool to get started quickly. Send
 
 - **Flexible** - It should be easy and quick to add functionality
 - **Strong typing** - Types should be available at all layers, frontend and backend
-- **Best practices** - Use Prettier and ESLint to automatically enforce code uniformity
+- **Best practices** - Use BiomeJS to automatically enforce code uniformity
 - **Testable** - The app should be testable with unit tests and E2E browser tests
 - **Maintainable** - Use migrations for database changes and minimize dependencies
 - **Updateable** - Keeping the dependencies up to date should be easy
@@ -35,12 +35,12 @@ Clone it with your favorite AI-assisted coding tool to get started quickly. Send
 - [**pnpm**](https://pnpm.io/) - A fast and reliable package manager
 - [**Vitest**](https://vitest.dev/) - Super fast unit testing
 - [**Playwright**](https://playwright.dev/) - E2E browser testing (not currently included because I can't get it to work with PGLite)
-- [**Prettier**](https://prettier.io/) and [**ESLint**](https://eslint.org/) - Automatic code formatting and linting on save (in VS Code and Cursor) and on commit (via Husky)
+- [**BiomeJS**](https://biomejs.dev/) - Fast, single-executable tool for code formatting and linting, with git hooks managed by [**Lefthook**](https://github.com/evilmartians/lefthook)
 - [**AGENTS.md**](https://agents.md/) - "A simple, open format for guiding coding agents"
 
 _Next.js note:_ I'm on the lookout for a Next.js replacement due to its increasing complexity and size. Astro is wonderful for static sites but requires more setup for dynamic sites.
 
-_Prettier and ESLint note:_ I'm strongly considering [Oxc](https://oxc.rs/) and/or [Biome](https://biomejs.dev/) to replace Prettier and ESLint. ESLint is slow and difficult to maintain. Fast, single-executable tools are probably the right direction for TypeScript tooling.
+_Code quality note:_ This project uses [BiomeJS](https://biomejs.dev/) for formatting and linting. It's fast, easy to configure, and replaces both Prettier and ESLint with a single tool.
 
 ## Setup
 
@@ -120,6 +120,17 @@ Consider also `pnpm db:down` to undo the migration
 ### Running tests
 
 Simply run `pnpm test`
+
+### Code Quality
+
+This project uses [BiomeJS](https://biomejs.dev/) for formatting and linting:
+
+- `pnpm check` - Check code quality (linting and formatting)
+- `pnpm check:fix` - Check and apply safe fixes automatically
+- `pnpm format` - Format code
+- `pnpm lint` - Lint code only
+
+Git hooks managed by Lefthook will automatically run checks before commits and pushes.
 
 ## Preferred Ways to Extend
 

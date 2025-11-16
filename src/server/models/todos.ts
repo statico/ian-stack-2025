@@ -13,11 +13,7 @@ const log = Logger.forModule();
  * Get all todos ordered by creation date (newest first)
  */
 export async function getAllTodos(): Promise<TodoRecord[]> {
-  return await db
-    .selectFrom("todos")
-    .selectAll()
-    .orderBy("id", "asc")
-    .execute();
+  return await db.selectFrom("todos").selectAll().orderBy("id", "asc").execute();
 }
 
 /**
@@ -38,10 +34,7 @@ export async function createTodo(input: CreateTodoInput): Promise<TodoRecord> {
 /**
  * Update an existing todo
  */
-export async function updateTodo(
-  id: number,
-  input: UpdateTodoInput,
-): Promise<TodoRecord> {
+export async function updateTodo(id: number, input: UpdateTodoInput): Promise<TodoRecord> {
   log.info("Updating todo %s with %s", id, input);
   return await db
     .updateTable("todos")
@@ -59,9 +52,5 @@ export async function updateTodo(
  */
 export async function deleteTodo(id: number): Promise<TodoRecord> {
   log.info("Deleting todo %s", id);
-  return await db
-    .deleteFrom("todos")
-    .where("id", "=", id)
-    .returningAll()
-    .executeTakeFirstOrThrow();
+  return await db.deleteFrom("todos").where("id", "=", id).returningAll().executeTakeFirstOrThrow();
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { __DEV__, __TEST__ } from "./env";
 
 /**
@@ -63,9 +62,7 @@ export class Logger {
         case "%o":
           return JSON.stringify(value);
         case "%s":
-          return typeof value === "object"
-            ? JSON.stringify(value)
-            : String(value);
+          return typeof value === "object" ? JSON.stringify(value) : String(value);
         case "%f":
           return String(value);
         case "%d":
@@ -93,7 +90,7 @@ export class Logger {
 
     const formattedMessage = this.format(message, params);
     console.debug(
-      `${this.timestamp()}${this.color(34)}DEBUG ${this.reset()}(${this.name}): ${formattedMessage}`,
+      `${this.timestamp()}${this.color(34)}DEBUG ${this.reset()}(${this.name}): ${formattedMessage}`
     );
   }
 
@@ -102,7 +99,7 @@ export class Logger {
 
     const formattedMessage = this.format(message, params);
     console.log(
-      `${this.timestamp()}${this.color(32)}INFO ${this.reset()}(${this.name}): ${formattedMessage}`,
+      `${this.timestamp()}${this.color(32)}INFO ${this.reset()}(${this.name}): ${formattedMessage}`
     );
   }
 
@@ -111,7 +108,7 @@ export class Logger {
 
     const formattedMessage = this.format(message, params);
     console.log(
-      `${this.timestamp()}${this.color(33)}WARN ${this.reset()}(${this.name}): ${formattedMessage}`,
+      `${this.timestamp()}${this.color(33)}WARN ${this.reset()}(${this.name}): ${formattedMessage}`
     );
   }
 
@@ -120,7 +117,7 @@ export class Logger {
 
     const formattedMessage = this.format(message, params);
     console.error(
-      `${this.timestamp()}${this.color(31)}ERROR ${this.reset()}(${this.name}): ${formattedMessage}`,
+      `${this.timestamp()}${this.color(31)}ERROR ${this.reset()}(${this.name}): ${formattedMessage}`
     );
   }
 }
