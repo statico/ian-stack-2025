@@ -1,10 +1,10 @@
 import "./globals.css";
 
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TRPCProviderWrapper } from "@/lib/trpc/Provider";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Todo App",

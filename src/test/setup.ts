@@ -1,5 +1,5 @@
-import { migrate, teardown } from "@/server/db/migrate";
 import { afterEach, beforeEach, vi } from "vitest";
+import { migrate, teardown } from "@/server/db/migrate";
 
 // Set timezone to UTC for all tests to ensure consistent behavior
 process.env.TZ = "UTC";
@@ -9,7 +9,7 @@ vi.mock("@/server/env", () => ({
   __TEST__: true,
   __DEV__: false,
   __LIVE__: false,
-  getEnv: vi.fn((key: string, defaultValue?: string) => {
+  getEnv: vi.fn((_key: string, defaultValue?: string) => {
     // Return default value if provided, otherwise return test-api-key
     return defaultValue || "test-api-key";
   }),

@@ -1,6 +1,6 @@
+import { z } from "zod";
 import { createTodo, deleteTodo, getAllTodos, updateTodo } from "@/server/models/todos";
 import { publicProcedure, router } from "@/server/trpc/trpc";
-import { z } from "zod";
 
 export const todosRouter = router({
   getAll: publicProcedure.query(async () => {

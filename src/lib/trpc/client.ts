@@ -1,7 +1,7 @@
-import { AppRouter } from "@/server/trpc/routers";
 import { TRPCClientError } from "@trpc/client";
 import { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import { createTRPCContext, useSubscription } from "@trpc/tanstack-react-query";
+import { AppRouter } from "@/server/trpc/routers";
 
 export type RouterInputs = inferRouterInputs<AppRouter>;
 export type RouterOutputs = inferRouterOutputs<AppRouter>;

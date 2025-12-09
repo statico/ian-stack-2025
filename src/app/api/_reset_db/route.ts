@@ -1,7 +1,7 @@
+import { NextResponse } from "next/server";
 import { recreateDb } from "@/server/db";
 import { migrate } from "@/server/db/migrate";
 import { __TEST__ } from "@/server/env";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   // Only allow this route in test mode
