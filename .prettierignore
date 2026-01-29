@@ -1,7 +1,13 @@
-# Package Managers
-package-lock.json
+node_modules
+.next
+dist
+build
+coverage
+public
+docs
 pnpm-lock.yaml
-yarn.lock
-
-# Docs
-docs/
+*.config.*
+kysely.config.*
+vitest.config.*
+postcss.config.*
+next.config.*

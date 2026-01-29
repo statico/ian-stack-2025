@@ -14,7 +14,7 @@ Clone it with your favorite AI-assisted coding tool to get started quickly. Send
 
 - **Flexible** - It should be easy and quick to add functionality
 - **Strong typing** - Types should be available at all layers, frontend and backend
-- **Best practices** - Use BiomeJS to automatically enforce code uniformity
+- **Best practices** - Use oxlint and Prettier to automatically enforce code uniformity
 - **Testable** - The app should be testable with unit tests and E2E browser tests
 - **Maintainable** - Use migrations for database changes and minimize dependencies
 - **Updateable** - Keeping the dependencies up to date should be easy
@@ -35,12 +35,13 @@ Clone it with your favorite AI-assisted coding tool to get started quickly. Send
 - [**pnpm**](https://pnpm.io/) - A fast and reliable package manager
 - [**Vitest**](https://vitest.dev/) - Super fast unit testing
 - [**Playwright**](https://playwright.dev/) - E2E browser testing (not currently included because I can't get it to work with PGLite)
-- [**BiomeJS**](https://biomejs.dev/) - Fast, single-executable tool for code formatting and linting, with git hooks managed by [**Lefthook**](https://github.com/evilmartians/lefthook)
+- [**oxlint**](https://oxc.rs/) - Fast Rust-based linter for JavaScript and TypeScript
+- [**Prettier**](https://prettier.io/) - Opinionated code formatter
 - [**AGENTS.md**](https://agents.md/) - "A simple, open format for guiding coding agents"
 
 _Next.js note:_ I'm on the lookout for a Next.js replacement due to its increasing complexity and size. Astro is wonderful for static sites but requires more setup for dynamic sites.
 
-_Code quality note:_ This project uses [BiomeJS](https://biomejs.dev/) for formatting and linting. It's fast, easy to configure, and replaces both Prettier and ESLint with a single tool.
+_Code quality note:_ This project uses [oxlint](https://oxc.rs/) for linting and [Prettier](https://prettier.io/) for formatting. oxlint is a fast Rust-based linter that's significantly faster than ESLint.
 
 ## Setup
 
@@ -123,14 +124,13 @@ Simply run `pnpm test`
 
 ### Code Quality
 
-This project uses [BiomeJS](https://biomejs.dev/) for formatting and linting:
+This project uses [oxlint](https://oxc.rs/) for linting and [Prettier](https://prettier.io/) for formatting:
 
-- `pnpm check` - Check code quality (linting and formatting)
-- `pnpm check:fix` - Check and apply safe fixes automatically
-- `pnpm format` - Format code
-- `pnpm lint` - Lint code only
-
-Git hooks managed by Lefthook will automatically run checks before commits and pushes.
+- `pnpm everything` - Run all checks (lint, format, types, tests) with automatic fixes
+- `pnpm lint` - Check for linting issues
+- `pnpm lint:fix` - Automatically fix linting issues
+- `pnpm format` - Check code formatting
+- `pnpm format:fix` - Automatically fix formatting issues
 
 ## Preferred Ways to Extend
 

@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "react": "warn",
+    "typescript": "warn",
+    "unicorn": "warn",
+    "nextjs": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  }
+}
